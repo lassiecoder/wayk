@@ -149,5 +149,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#8A8A8E',
     marginTop: 20,
+    textAlign: 'center',
   },
 });
