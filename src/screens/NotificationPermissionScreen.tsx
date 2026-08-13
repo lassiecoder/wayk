@@ -9,6 +9,7 @@ import React, { useEffect, useRef } from 'react';
 import { Animated, Easing, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { Colors } from '../theme/colors';
 
 export default function NotificationPermissionScreen({
   progress,
@@ -76,7 +77,7 @@ export default function NotificationPermissionScreen({
           <View style={styles.glowOuter}>
             <View style={styles.glowInner}>
               <View style={styles.bellCircle}>
-                <Ionicons name="notifications" size={34} color="#FFFFFF" />
+                <Ionicons name="notifications" size={34} color={Colors.white} />
               </View>
             </View>
           </View>
@@ -109,7 +110,7 @@ export default function NotificationPermissionScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   content: {
     flex: 1,
@@ -168,20 +169,20 @@ const styles = StyleSheet.create({
     width: 76,
     height: 76,
     borderRadius: 38,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
     fontSize: 22,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     textAlign: 'center',
     marginTop: 28,
   },
   body: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     lineHeight: 21,
     marginTop: 10,
@@ -199,16 +200,16 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 18,
     alignItems: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   enableText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
   notNowText: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 18,
   },
 });

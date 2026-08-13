@@ -20,6 +20,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
 import { MISSIONS } from './MissionSelectScreen';
+import { Colors } from '../theme/colors';
 
 const { height: SCREEN_H } = Dimensions.get('window');
 
@@ -76,15 +77,15 @@ function StepRow({
   // always readable rather than fading out to nothing.
   const titleColor = revealAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#C7C7CC', '#000000'],
+    outputRange: [Colors.placeholder, Colors.black],
   });
   const circleBorderColor = checkAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#D8D8DC', '#34C759'],
+    outputRange: [Colors.border, Colors.successAlt],
   });
   const circleBg = checkAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['rgba(0,0,0,0)', '#34C759'],
+    outputRange: ['rgba(0,0,0,0)', Colors.successAlt],
   });
 
   return (
@@ -104,7 +105,7 @@ function StepRow({
         <Animated.View
           style={{ opacity: checkAnim, transform: [{ scale: checkAnim }] }}
         >
-          <Ionicons name="checkmark" size={14} color="#FFFFFF" />
+          <Ionicons name="checkmark" size={14} color={Colors.white} />
         </Animated.View>
       </Animated.View>
     </View>
@@ -235,10 +236,10 @@ export default function SetupLoadingScreen({
                   <Svg width={trackWidth} height={8}>
                     <Defs>
                       <LinearGradient id="setupGrad" x1="0" y1="0" x2="1" y2="0">
-                        <Stop offset="0" stopColor="#E8524F" />
-                        <Stop offset="0.35" stopColor="#F0A83B" />
-                        <Stop offset="0.65" stopColor="#C9CB4A" />
-                        <Stop offset="1" stopColor="#3FAE7A" />
+                        <Stop offset="0" stopColor={Colors.spectrumRed} />
+                        <Stop offset="0.35" stopColor={Colors.spectrumOrange} />
+                        <Stop offset="0.65" stopColor={Colors.spectrumYellow} />
+                        <Stop offset="1" stopColor={Colors.success} />
                       </LinearGradient>
                     </Defs>
                     <Rect width={trackWidth} height={8} fill="url(#setupGrad)" />
@@ -272,7 +273,7 @@ export default function SetupLoadingScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   content: {
@@ -285,13 +286,13 @@ const styles = StyleSheet.create({
   percent: {
     fontSize: 60,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     textAlign: 'center',
   },
   headline: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#000000',
+    color: Colors.black,
     textAlign: 'center',
     marginTop: 4,
   },
@@ -310,16 +311,16 @@ const styles = StyleSheet.create({
   },
   progressFillSolid: {
     flex: 1,
-    backgroundColor: '#3FAE7A',
+    backgroundColor: Colors.success,
   },
   status: {
     width: '100%',
     fontSize: 14,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 10,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 20,
     marginTop: 32,
     overflow: 'hidden',
@@ -345,7 +346,7 @@ const styles = StyleSheet.create({
   },
   rowSubtitle: {
     fontSize: 13,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 2,
   },
   circle: {

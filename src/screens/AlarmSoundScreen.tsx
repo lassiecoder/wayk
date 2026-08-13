@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { Colors } from '../theme/colors';
 
 type Sound = {
   id: string;
@@ -146,18 +147,18 @@ export default function AlarmSoundScreen({
                   >
                     <View style={[styles.avatar, { backgroundColor: sound.color }]}>
                       {sound.isBell && (
-                        <Ionicons name="notifications" size={16} color="#FFFFFF" />
+                        <Ionicons name="notifications" size={16} color={Colors.white} />
                       )}
                     </View>
                     <Text style={styles.rowName}>{sound.name}</Text>
                     {!sound.isBell && (
                       <TouchableOpacity style={styles.playBtn} activeOpacity={0.7}>
-                        <Ionicons name="play" size={13} color="#4A4A4C" />
+                        <Ionicons name="play" size={13} color={Colors.iconGray} />
                       </TouchableOpacity>
                     )}
                     <View style={[styles.checkbox, isSelected && styles.checkboxSelected]}>
                       {isSelected && (
-                        <Ionicons name="checkmark" size={14} color="#FFFFFF" />
+                        <Ionicons name="checkmark" size={14} color={Colors.white} />
                       )}
                     </View>
                   </TouchableOpacity>
@@ -184,7 +185,7 @@ export default function AlarmSoundScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -201,7 +202,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -215,12 +216,12 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 34,
     marginTop: 28,
   },
@@ -236,12 +237,12 @@ const styles = StyleSheet.create({
   sectionLabel: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     letterSpacing: 0.5,
     marginBottom: 8,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 20,
     overflow: 'hidden',
   },
@@ -266,7 +267,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: '600',
-    color: '#000000',
+    color: Colors.black,
     marginLeft: 14,
   },
   playBtn: {
@@ -289,8 +290,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   checkboxSelected: {
-    borderColor: '#000000',
-    backgroundColor: '#000000',
+    borderColor: Colors.black,
+    backgroundColor: Colors.black,
   },
   bottom: {
     position: 'absolute',
@@ -304,11 +305,11 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 18,
     alignItems: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

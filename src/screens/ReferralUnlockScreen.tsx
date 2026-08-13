@@ -18,6 +18,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { Colors } from '../theme/colors';
 
 const ICON_SIZE = 160;
 
@@ -50,7 +51,7 @@ function LockIcon() {
         <Circle cx={cx} cy={cy} r={30} fill="#F5ECDD" />
       </Svg>
       <View style={styles.lockGlyph} pointerEvents="none">
-        <Ionicons name="lock-closed" size={26} color="#6B4A34" />
+        <Ionicons name="lock-closed" size={26} color={Colors.lockBrown} />
       </View>
     </View>
   );
@@ -149,7 +150,7 @@ export default function ReferralUnlockScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   backBtn: {
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   content: {
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     textAlign: 'center',
     lineHeight: 34,
     marginTop: 28,
@@ -187,7 +188,7 @@ const styles = StyleSheet.create({
   },
   body: {
     fontSize: 16,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     lineHeight: 22,
     marginTop: 20,
@@ -195,7 +196,7 @@ const styles = StyleSheet.create({
   },
   bodySecondary: {
     fontSize: 14,
-    color: '#B0B0B4',
+    color: Colors.tertiaryText,
     textAlign: 'center',
     lineHeight: 20,
     marginTop: 20,
@@ -213,16 +214,16 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 18,
     alignItems: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   shareText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
   skipText: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 18,
   },
 });

@@ -17,6 +17,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import LanguageSheet from '../components/LanguageSheet';
+import { Colors } from '../theme/colors';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 
@@ -471,8 +472,8 @@ export default function QuestionnaireScreen({
         <Svg width={SCREEN_W} height={180}>
           <Defs>
             <LinearGradient id="bottomFade" x1="0" y1="0" x2="0" y2="1">
-              <Stop offset="0" stopColor="#000000" stopOpacity={0} />
-              <Stop offset="1" stopColor="#000000" stopOpacity={0.16} />
+              <Stop offset="0" stopColor={Colors.black} stopOpacity={0} />
+              <Stop offset="1" stopColor={Colors.black} stopOpacity={0.16} />
             </LinearGradient>
           </Defs>
           <Rect width={SCREEN_W} height={180} fill="url(#bottomFade)" />
@@ -504,7 +505,7 @@ export default function QuestionnaireScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -521,7 +522,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -535,7 +536,7 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   flagBadge: {
     width: 44,
@@ -551,7 +552,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 34,
     marginTop: 28,
   },
@@ -562,36 +563,36 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 18,
     paddingHorizontal: 20,
     paddingVertical: 20,
     marginBottom: 14,
     borderWidth: 1.5,
-    borderColor: '#FFFFFF',
+    borderColor: Colors.white,
   },
   optionSelected: {
-    borderColor: '#000000',
+    borderColor: Colors.black,
   },
   optionText: {
     fontSize: 17,
-    color: '#1A1A1A',
+    color: Colors.darkText,
   },
   radio: {
     width: 24,
     height: 24,
     borderRadius: 12,
     borderWidth: 1.5,
-    borderColor: '#D8D8DC',
+    borderColor: Colors.border,
     alignItems: 'center',
     justifyContent: 'center',
   },
   radioSelected: {
-    backgroundColor: '#000000',
-    borderColor: '#000000',
+    backgroundColor: Colors.black,
+    borderColor: Colors.black,
   },
   radioCheck: {
-    color: '#FFFFFF',
+    color: Colors.white,
     fontSize: 12,
     fontWeight: '700',
   },
@@ -619,7 +620,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(120,120,128,0.16)',
   },
   continueBtnActive: {
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
@@ -627,6 +628,6 @@ const styles = StyleSheet.create({
     color: 'rgba(60,60,67,0.6)',
   },
   continueTextActive: {
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

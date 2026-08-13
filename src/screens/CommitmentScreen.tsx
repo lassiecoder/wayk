@@ -18,6 +18,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { Colors } from '../theme/colors';
 
 const PAD_HEIGHT = 380;
 
@@ -135,7 +136,7 @@ export default function CommitmentScreen({
 
   const borderColor = lockAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#E5E5E7', '#3FAE7A'],
+    outputRange: [Colors.borderLight, Colors.success],
   });
   const badgeScale = lockAnim.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] });
   const badgeOpacity = lockAnim;
@@ -190,7 +191,7 @@ export default function CommitmentScreen({
                 <Path
                   key={i}
                   d={pointsToPath(stroke)}
-                  stroke="#1A1A1A"
+                  stroke={Colors.darkText}
                   strokeWidth={3}
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -200,7 +201,7 @@ export default function CommitmentScreen({
               {currentStroke.current.length > 1 && (
                 <Path
                   d={pointsToPath(currentStroke.current)}
-                  stroke="#1A1A1A"
+                  stroke={Colors.darkText}
                   strokeWidth={3}
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -218,13 +219,13 @@ export default function CommitmentScreen({
                 { opacity: badgeOpacity, transform: [{ scale: badgeScale }] },
               ]}
             >
-              <Ionicons name="checkmark" size={30} color="#FFFFFF" />
+              <Ionicons name="checkmark" size={30} color={Colors.white} />
             </Animated.View>
           )}
 
           <View style={styles.signLine} pointerEvents="none" />
           <TouchableOpacity style={styles.clearBtn} onPress={clearSignature}>
-            <Ionicons name="close" size={16} color="#8A8A8E" />
+            <Ionicons name="close" size={16} color={Colors.mutedText} />
           </TouchableOpacity>
         </Animated.View>
       </Animated.View>
@@ -253,7 +254,7 @@ export default function CommitmentScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -270,7 +271,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -284,26 +285,26 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     textAlign: 'center',
     lineHeight: 34,
     marginTop: 28,
   },
   subtitle: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     marginTop: 8,
   },
   pad: {
     height: PAD_HEIGHT,
     marginTop: 32,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 24,
     borderWidth: 2,
     overflow: 'hidden',
@@ -319,7 +320,7 @@ const styles = StyleSheet.create({
   placeholderTitle: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#C7C7CC',
+    color: Colors.placeholder,
   },
   placeholderSubtitle: {
     fontSize: 14,
@@ -335,7 +336,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '800',
     letterSpacing: 2,
-    color: '#3FAE7A',
+    color: Colors.success,
   },
   canvas: {
     flex: 1,
@@ -352,7 +353,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255,255,255,0.9)',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#3FAE7A',
+    shadowColor: Colors.success,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
     shadowRadius: 16,
@@ -364,7 +365,7 @@ const styles = StyleSheet.create({
     right: 24,
     bottom: 32,
     height: 1,
-    backgroundColor: '#E5E5E7',
+    backgroundColor: Colors.borderLight,
   },
   clearBtn: {
     position: 'absolute',
@@ -389,7 +390,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(120,120,128,0.16)',
   },
   continueBtnActive: {
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
@@ -397,6 +398,6 @@ const styles = StyleSheet.create({
     color: 'rgba(60,60,67,0.6)',
   },
   continueTextActive: {
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

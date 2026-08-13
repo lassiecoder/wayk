@@ -14,6 +14,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Colors } from '../theme/colors';
 
 const TIME_STEP = 5;
 const TIME_MIN = 5;
@@ -180,7 +181,7 @@ export default function ExerciseSetupScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -211,18 +212,18 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 34,
     marginTop: 28,
   },
   subtitle: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 8,
   },
   tabs: {
@@ -239,8 +240,8 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   tabActive: {
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000000',
+    backgroundColor: Colors.white,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.08,
     shadowRadius: 3,
@@ -249,13 +250,13 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#8A8A8E',
+    color: Colors.mutedText,
   },
   tabTextActive: {
-    color: '#000000',
+    color: Colors.black,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 24,
     paddingVertical: 32,
     paddingHorizontal: 24,
@@ -271,14 +272,14 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
     alignItems: 'center',
     justifyContent: 'center',
   },
   stepperIcon: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
     marginTop: -2,
   },
   stepperValueWrap: {
@@ -289,16 +290,16 @@ const styles = StyleSheet.create({
   stepperValue: {
     fontSize: 48,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
   },
   stepperUnit: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 2,
   },
   description: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     marginTop: 24,
     lineHeight: 21,
@@ -315,11 +316,11 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 18,
     alignItems: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

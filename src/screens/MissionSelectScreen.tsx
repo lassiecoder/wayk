@@ -17,6 +17,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { Colors } from '../theme/colors';
 
 type Mission = {
   id: string;
@@ -36,7 +37,7 @@ export const MISSIONS: Mission[] = [
     iconSet: 'ion',
     icon: 'scan-outline',
     bg: '#E8E9F5',
-    color: '#5B5FC7',
+    color: Colors.missionPurple,
   },
   {
     id: 'pushUps',
@@ -54,7 +55,7 @@ export const MISSIONS: Mission[] = [
     iconSet: 'mdi',
     icon: 'human-handsdown',
     bg: '#FBEEE0',
-    color: '#C4762B',
+    color: Colors.missionBrown,
   },
   {
     id: 'mathProblem',
@@ -193,7 +194,7 @@ export default function MissionSelectScreen({
                   <Text style={styles.cardSubtitle}>{mission.subtitle}</Text>
                 </View>
                 <View style={[styles.checkbox, isSelected && styles.checkboxSelected]}>
-                  {isSelected && <Ionicons name="checkmark" size={14} color="#FFFFFF" />}
+                  {isSelected && <Ionicons name="checkmark" size={14} color={Colors.white} />}
                 </View>
               </TouchableOpacity>
             </Animated.View>
@@ -225,7 +226,7 @@ export default function MissionSelectScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -242,7 +243,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -256,18 +257,18 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 34,
     marginTop: 28,
   },
   subtitle: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 8,
   },
   list: {
@@ -279,7 +280,7 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 20,
     padding: 14,
     marginBottom: 12,
@@ -298,11 +299,11 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 17,
     fontWeight: '700',
-    color: '#000000',
+    color: Colors.black,
   },
   cardSubtitle: {
     fontSize: 13,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 2,
   },
   checkbox: {
@@ -316,8 +317,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   checkboxSelected: {
-    borderColor: '#000000',
-    backgroundColor: '#000000',
+    borderColor: Colors.black,
+    backgroundColor: Colors.black,
   },
   bottom: {
     position: 'absolute',
@@ -337,7 +338,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(120,120,128,0.16)',
   },
   continueBtnActive: {
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
@@ -345,6 +346,6 @@ const styles = StyleSheet.create({
     color: 'rgba(60,60,67,0.6)',
   },
   continueTextActive: {
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

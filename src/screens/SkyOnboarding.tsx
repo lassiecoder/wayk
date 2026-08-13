@@ -18,6 +18,7 @@ import Svg, {
   Rect,
   Stop,
 } from 'react-native-svg';
+import { Colors } from '../theme/colors';
 
 const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get('window');
 
@@ -178,14 +179,14 @@ export default function SkyOnboarding({ onComplete }: { onComplete?: () => void 
             <Stop offset="1" stopColor={skyBottom} />
           </LinearGradient>
           <RadialGradient id="sunCore" cx="50%" cy="50%" r="50%">
-            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity={1} />
-            <Stop offset="45%" stopColor="#FFD24D" stopOpacity={1} />
-            <Stop offset="100%" stopColor="#FFA733" stopOpacity={0.95} />
+            <Stop offset="0%" stopColor={Colors.white} stopOpacity={1} />
+            <Stop offset="45%" stopColor={Colors.sunCore} stopOpacity={1} />
+            <Stop offset="100%" stopColor={Colors.sunEdge} stopOpacity={0.95} />
           </RadialGradient>
           <RadialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-            <Stop offset="0%" stopColor="#FFC15C" stopOpacity={0.45} />
-            <Stop offset="60%" stopColor="#FFB347" stopOpacity={0.12} />
-            <Stop offset="100%" stopColor="#FFB347" stopOpacity={0} />
+            <Stop offset="0%" stopColor={Colors.sunGlowStart} stopOpacity={0.45} />
+            <Stop offset="60%" stopColor={Colors.sunGlowMid} stopOpacity={0.12} />
+            <Stop offset="100%" stopColor={Colors.sunGlowMid} stopOpacity={0} />
           </RadialGradient>
         </Defs>
 
@@ -198,7 +199,7 @@ export default function SkyOnboarding({ onComplete }: { onComplete?: () => void 
                 cx={s.x * SCREEN_W}
                 cy={s.y * SCREEN_H}
                 r={s.r * 2.5}
-                fill="#FFFFFF"
+                fill={Colors.white}
                 opacity={starOpacity * 0.25}
               />
             )}
@@ -206,7 +207,7 @@ export default function SkyOnboarding({ onComplete }: { onComplete?: () => void 
               cx={s.x * SCREEN_W}
               cy={s.y * SCREEN_H}
               r={s.r}
-              fill="#FFFFFF"
+              fill={Colors.white}
               opacity={starOpacity}
             />
           </React.Fragment>

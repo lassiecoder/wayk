@@ -18,6 +18,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Colors } from '../theme/colors';
 
 const { height: SCREEN_H } = Dimensions.get('window');
 
@@ -165,14 +166,14 @@ export default function LanguageSheet({
 
 const styles = StyleSheet.create({
   backdrop: {
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   sheet: {
     position: 'absolute',
     left: 0,
     right: 0,
     top: 0,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
   },
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 5,
     borderRadius: 3,
-    backgroundColor: '#D8D8DC',
+    backgroundColor: Colors.border,
     marginTop: 10,
   },
   header: {
@@ -202,12 +203,12 @@ const styles = StyleSheet.create({
   },
   closeIcon: {
     fontSize: 16,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
   },
   title: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#000000',
+    color: Colors.black,
   },
   row: {
     flexDirection: 'row',
@@ -222,24 +223,24 @@ const styles = StyleSheet.create({
   langName: {
     flex: 1,
     fontSize: 17,
-    color: '#1A1A1A',
+    color: Colors.darkText,
   },
   check: {
     width: 26,
     height: 26,
     borderRadius: 13,
-    backgroundColor: '#34C759',
+    backgroundColor: Colors.successAlt,
     alignItems: 'center',
     justifyContent: 'center',
   },
   checkIcon: {
-    color: '#FFFFFF',
+    color: Colors.white,
     fontSize: 14,
     fontWeight: '700',
   },
   separator: {
     height: 1,
-    backgroundColor: '#EDEDEF',
+    backgroundColor: Colors.divider,
     marginLeft: 24,
   },
 });

@@ -23,6 +23,7 @@ import Animated, {
   withDelay,
   withTiming,
 } from 'react-native-reanimated';
+import { Colors } from '../theme/colors';
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 
@@ -169,7 +170,7 @@ export default function EnergyLevelsScreen({
             <Path
               ref={wayxPathRef}
               d={WAYK_PATH}
-              stroke="#000000"
+              stroke={Colors.black}
               strokeWidth={3.5}
               fill="none"
               opacity={0}
@@ -186,7 +187,7 @@ export default function EnergyLevelsScreen({
                 />
                 <AnimatedPath
                   d={WAYK_PATH}
-                  stroke="#000000"
+                  stroke={Colors.black}
                   strokeWidth={3.5}
                   fill="none"
                   strokeLinecap="round"
@@ -253,7 +254,7 @@ export default function EnergyLevelsScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -270,7 +271,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -284,24 +285,24 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 26,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     marginTop: 24,
   },
   card: {
     marginTop: 96,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 22,
     padding: 20,
   },
   cardTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#1A1A1A',
+    color: Colors.darkText,
   },
   chartWrap: {
     marginTop: 16,
@@ -322,27 +323,27 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   badgeActive: {
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   badgeIcon: {
     fontSize: 10,
     marginRight: 6,
-    color: '#FFFFFF',
+    color: Colors.white,
   },
   badgeText: {
     fontSize: 10,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
   badgeTextActive: {
-    color: '#FFFFFF',
+    color: Colors.white,
   },
   dotWayk: {
     position: 'absolute',
     width: 12,
     height: 12,
     borderRadius: 6,
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   dotSnooze: {
     position: 'absolute',
@@ -351,7 +352,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderWidth: 1.5,
     borderColor: '#E8899A',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
   },
   snoozeLabel: {
     position: 'absolute',
@@ -376,7 +377,7 @@ const styles = StyleSheet.create({
   caption: {
     marginTop: 18,
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     lineHeight: 21,
     fontWeight: '700',
@@ -399,7 +400,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(120,120,128,0.16)',
   },
   continueBtnActive: {
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
@@ -407,6 +408,6 @@ const styles = StyleSheet.create({
     color: 'rgba(60,60,67,0.6)',
   },
   continueTextActive: {
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

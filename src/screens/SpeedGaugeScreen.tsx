@@ -22,6 +22,7 @@ import Svg, {
   Line,
   Circle,
 } from 'react-native-svg';
+import { Colors } from '../theme/colors';
 
 const UNLOCK_DELAY_MS = 1000;
 const NEEDLE_SWEEP_MS = 1000;
@@ -68,10 +69,10 @@ function Gauge({ needleT }: { needleT: number }) {
     <Svg width="100%" height={GAUGE_H} viewBox={`0 0 ${GAUGE_W} ${GAUGE_H}`}>
       <Defs>
         <LinearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="0">
-          <Stop offset="0" stopColor="#E8524F" />
-          <Stop offset="0.35" stopColor="#F0A83B" />
-          <Stop offset="0.65" stopColor="#C9CB4A" />
-          <Stop offset="1" stopColor="#3FAE7A" />
+          <Stop offset="0" stopColor={Colors.spectrumRed} />
+          <Stop offset="0.35" stopColor={Colors.spectrumOrange} />
+          <Stop offset="0.65" stopColor={Colors.spectrumYellow} />
+          <Stop offset="1" stopColor={Colors.success} />
         </LinearGradient>
       </Defs>
       <Path
@@ -97,12 +98,12 @@ function Gauge({ needleT }: { needleT: number }) {
         y1={tail.y}
         x2={tip.x}
         y2={tip.y}
-        stroke="#000000"
+        stroke={Colors.black}
         strokeWidth={4}
         strokeLinecap="round"
       />
-      <Circle cx={CX} cy={CY} r={9} fill="#000000" />
-      <Circle cx={CX} cy={CY} r={3} fill="#FFFFFF" />
+      <Circle cx={CX} cy={CY} r={9} fill={Colors.black} />
+      <Circle cx={CX} cy={CY} r={3} fill={Colors.white} />
     </Svg>
   );
 }
@@ -244,7 +245,7 @@ export default function SpeedGaugeScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -261,7 +262,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -275,17 +276,17 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 34,
     marginTop: 28,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 24,
     paddingVertical: 28,
     paddingHorizontal: 20,
@@ -303,12 +304,12 @@ const styles = StyleSheet.create({
   gaugeValue: {
     fontSize: 38,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
   },
   gaugeCaption: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     letterSpacing: 1,
     marginTop: 2,
   },
@@ -325,19 +326,19 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   endLabelSlow: {
-    color: '#E8524F',
+    color: Colors.spectrumRed,
   },
   endLabelInstant: {
-    color: '#3FAE7A',
+    color: Colors.success,
   },
   endSubLabel: {
     fontSize: 13,
-    color: '#B0B0B4',
+    color: Colors.tertiaryText,
     marginTop: 2,
   },
   description: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     marginTop: 20,
     lineHeight: 21,
@@ -360,7 +361,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(120,120,128,0.16)',
   },
   continueBtnActive: {
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
@@ -368,6 +369,6 @@ const styles = StyleSheet.create({
     color: 'rgba(60,60,67,0.6)',
   },
   continueTextActive: {
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

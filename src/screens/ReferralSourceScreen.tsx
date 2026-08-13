@@ -17,6 +17,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { Colors } from '../theme/colors';
 
 type Source = {
   id: string;
@@ -28,12 +29,12 @@ type Source = {
 };
 
 const SOURCES: Source[] = [
-  { id: 'doctor', name: 'Doctor', iconSet: 'mdi', icon: 'stethoscope', bg: '#EDEDED', color: '#1A1A1A' },
-  { id: 'instagram', name: 'Instagram', iconSet: 'mdi', icon: 'instagram', bg: '#FFFFFF', color: '#C13584' },
-  { id: 'facebook', name: 'Facebook', iconSet: 'mdi', icon: 'facebook', bg: '#1877F2', color: '#FFFFFF' },
-  { id: 'twitter', name: 'Twitter', iconSet: 'ion', icon: 'logo-x', bg: '#EDEDED', color: '#000000' },
-  { id: 'youtube', name: 'YouTube', iconSet: 'ion', icon: 'logo-youtube', bg: '#FF0000', color: '#FFFFFF' },
-  { id: 'reddit', name: 'Reddit', iconSet: 'mdi', icon: 'reddit', bg: '#FF4500', color: '#FFFFFF' },
+  { id: 'doctor', name: 'Doctor', iconSet: 'mdi', icon: 'stethoscope', bg: '#EDEDED', color: Colors.darkText },
+  { id: 'instagram', name: 'Instagram', iconSet: 'mdi', icon: 'instagram', bg: Colors.white, color: '#C13584' },
+  { id: 'facebook', name: 'Facebook', iconSet: 'mdi', icon: 'facebook', bg: '#1877F2', color: Colors.white },
+  { id: 'twitter', name: 'Twitter', iconSet: 'ion', icon: 'logo-x', bg: '#EDEDED', color: Colors.black },
+  { id: 'youtube', name: 'YouTube', iconSet: 'ion', icon: 'logo-youtube', bg: '#FF0000', color: Colors.white },
+  { id: 'reddit', name: 'Reddit', iconSet: 'mdi', icon: 'reddit', bg: '#FF4500', color: Colors.white },
 ];
 
 function SourceIcon({ source }: { source: Source }) {
@@ -130,7 +131,7 @@ export default function ReferralSourceScreen({
               <SourceIcon source={source} />
               <Text style={styles.cardName}>{source.name}</Text>
               <View style={[styles.checkbox, isSelected && styles.checkboxSelected]}>
-                {isSelected && <Ionicons name="checkmark" size={14} color="#FFFFFF" />}
+                {isSelected && <Ionicons name="checkmark" size={14} color={Colors.white} />}
               </View>
             </TouchableOpacity>
           );
@@ -161,7 +162,7 @@ export default function ReferralSourceScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -192,12 +193,12 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 34,
     marginTop: 28,
   },
@@ -210,15 +211,15 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 20,
     padding: 14,
     marginBottom: 12,
     borderWidth: 1.5,
-    borderColor: '#FFFFFF',
+    borderColor: Colors.white,
   },
   cardSelected: {
-    borderColor: '#000000',
+    borderColor: Colors.black,
   },
   avatar: {
     width: 48,
@@ -231,7 +232,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 17,
     fontWeight: '600',
-    color: '#000000',
+    color: Colors.black,
     marginLeft: 14,
   },
   checkbox: {
@@ -245,8 +246,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   checkboxSelected: {
-    borderColor: '#000000',
-    backgroundColor: '#000000',
+    borderColor: Colors.black,
+    backgroundColor: Colors.black,
   },
   bottom: {
     position: 'absolute',
@@ -266,7 +267,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(120,120,128,0.16)',
   },
   continueBtnActive: {
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
@@ -274,6 +275,6 @@ const styles = StyleSheet.create({
     color: 'rgba(60,60,67,0.6)',
   },
   continueTextActive: {
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

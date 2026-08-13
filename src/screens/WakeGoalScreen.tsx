@@ -17,6 +17,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import RollingText from '../components/RollingText';
+import { Colors } from '../theme/colors';
 
 const ITEM_H = 44;
 const VISIBLE_ROWS = 5;
@@ -206,7 +207,7 @@ export default function WakeGoalScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -223,7 +224,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -237,18 +238,18 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 34,
     marginTop: 28,
   },
   subtitle: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 8,
   },
   displayRow: {
@@ -260,7 +261,7 @@ const styles = StyleSheet.create({
   display: {
     fontSize: 44,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     textAlign: 'center',
   },
   wheelWrap: {
@@ -286,7 +287,7 @@ const styles = StyleSheet.create({
   wheelItem: {
     fontSize: 24,
     fontWeight: '600',
-    color: '#000000',
+    color: Colors.black,
   },
   bottom: {
     position: 'absolute',
@@ -300,11 +301,11 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 18,
     alignItems: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

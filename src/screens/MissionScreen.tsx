@@ -26,12 +26,13 @@ import Reanimated, {
   withDelay,
   withTiming,
 } from 'react-native-reanimated';
+import { Colors } from '../theme/colors';
 
 const AnimatedPath = Reanimated.createAnimatedComponent(Path);
 
 const { width: SCREEN_W } = Dimensions.get('window');
 
-const GOLD = '#E7A845';
+const GOLD = Colors.accent;
 const ORANGE = '#E0904B';
 const RED = '#E2536B';
 const GREEN = '#1FA971';
@@ -154,7 +155,7 @@ const LEFT_NODES = [
     label: 'Panic',
     bg: RED,
     icon: (
-      <Text style={{ color: '#FFFFFF', fontWeight: '800', fontSize: 17 }}>
+      <Text style={{ color: Colors.white, fontWeight: '800', fontSize: 17 }}>
         !
       </Text>
     ),
@@ -173,7 +174,7 @@ const RIGHT_NODES = [
     label: 'Mission',
     bg: GREEN,
     icon: (
-      <Text style={{ color: '#FFFFFF', fontWeight: '800', fontSize: 15 }}>
+      <Text style={{ color: Colors.white, fontWeight: '800', fontSize: 15 }}>
         ✓
       </Text>
     ),
@@ -575,7 +576,7 @@ export default function MissionScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -592,7 +593,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -606,20 +607,20 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 26,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     marginTop: 24,
   },
   card: {
     marginTop: 28,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 22,
     padding: 20,
-    shadowColor: '#000000',
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.08,
     shadowRadius: 24,
@@ -636,12 +637,12 @@ const styles = StyleSheet.create({
     paddingRight: 0,
     paddingLeft: 14,
     borderLeftWidth: 1,
-    borderLeftColor: '#EDEDEF',
+    borderLeftColor: Colors.divider,
   },
   colHeaderTypical: {
     fontSize: 11,
     fontWeight: '800',
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     letterSpacing: 1,
   },
   colHeaderWayk: {
@@ -687,12 +688,12 @@ const styles = StyleSheet.create({
   nodeTime: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#1A1A1A',
+    color: Colors.darkText,
     fontVariant: ['tabular-nums'],
   },
   nodeLabel: {
     fontSize: 12,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 2,
   },
   badge: {
@@ -735,7 +736,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(120,120,128,0.16)',
   },
   continueBtnActive: {
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
@@ -743,6 +744,6 @@ const styles = StyleSheet.create({
     color: 'rgba(60,60,67,0.6)',
   },
   continueTextActive: {
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

@@ -9,6 +9,7 @@ import React, { useEffect, useRef } from 'react';
 import { Animated, Easing, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { Colors } from '../theme/colors';
 
 export default function CreateAccountScreen({
   onContinue,
@@ -64,12 +65,12 @@ export default function CreateAccountScreen({
 
         <Animated.View style={[styles.buttonsWrap, buttonsReveal]}>
           <TouchableOpacity style={styles.appleBtn} activeOpacity={0.85} onPress={onContinue}>
-            <Ionicons name="logo-apple" size={20} color="#FFFFFF" style={styles.btnIcon} />
+            <Ionicons name="logo-apple" size={20} color={Colors.white} style={styles.btnIcon} />
             <Text style={styles.appleText}>Sign in with Apple</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.googleBtn} activeOpacity={0.85} onPress={onContinue}>
-            <Ionicons name="logo-google" size={18} color="#1A1A1A" style={styles.btnIcon} />
+            <Ionicons name="logo-google" size={18} color={Colors.darkText} style={styles.btnIcon} />
             <Text style={styles.googleText}>Continue with Google</Text>
           </TouchableOpacity>
 
@@ -85,7 +86,7 @@ export default function CreateAccountScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   content: {
@@ -98,12 +99,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     marginTop: 8,
   },
@@ -115,12 +116,12 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 17,
     marginTop: 32,
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   appleText: {
     fontSize: 17,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
   googleBtn: {
     flexDirection: 'row',
@@ -130,8 +131,8 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 17,
     marginTop: 12,
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000000',
+    backgroundColor: Colors.white,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.06,
     shadowRadius: 6,
@@ -140,14 +141,14 @@ const styles = StyleSheet.create({
   googleText: {
     fontSize: 17,
     fontWeight: '700',
-    color: '#1A1A1A',
+    color: Colors.darkText,
   },
   btnIcon: {
     marginRight: 8,
   },
   skipText: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 20,
     textAlign: 'center',
   },

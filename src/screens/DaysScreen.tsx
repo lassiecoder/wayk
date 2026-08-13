@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { Colors } from '../theme/colors';
 
 const DAYS = [
   'Monday',
@@ -126,7 +127,7 @@ export default function DaysScreen({
               >
                 <Text style={styles.rowText}>{day}</Text>
                 <View style={[styles.checkbox, isSelected && styles.checkboxSelected]}>
-                  {isSelected && <Ionicons name="checkmark" size={14} color="#FFFFFF" />}
+                  {isSelected && <Ionicons name="checkmark" size={14} color={Colors.white} />}
                 </View>
               </TouchableOpacity>
             </Animated.View>
@@ -150,7 +151,7 @@ export default function DaysScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -181,18 +182,18 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 34,
     marginTop: 28,
   },
   subtitle: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 8,
   },
   list: {
@@ -210,13 +211,13 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   rowSelected: {
-    borderColor: '#000000',
-    backgroundColor: '#FFFFFF',
+    borderColor: Colors.black,
+    backgroundColor: Colors.white,
   },
   rowText: {
     fontSize: 17,
     fontWeight: '600',
-    color: '#000000',
+    color: Colors.black,
   },
   checkbox: {
     width: 24,
@@ -229,8 +230,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   checkboxSelected: {
-    borderColor: '#000000',
-    backgroundColor: '#000000',
+    borderColor: Colors.black,
+    backgroundColor: Colors.black,
   },
   bottom: {
     position: 'absolute',
@@ -244,11 +245,11 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 18,
     alignItems: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

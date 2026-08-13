@@ -14,6 +14,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Colors } from '../theme/colors';
 
 export default function WakeTargetScreen({
   time,
@@ -87,7 +88,7 @@ export default function WakeTargetScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   header: {
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
   },
   backIcon: {
     fontSize: 22,
-    color: '#3A3A3C',
+    color: Colors.subtleText,
     marginRight: 2,
   },
   progressTrack: {
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
   progressFill: {
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#E7A845',
+    backgroundColor: Colors.accent,
   },
   center: {
     // flex: 1,
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 40,
     textAlign: 'center',
   },
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
   },
   paceSub: {
     fontSize: 16,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 8,
     textAlign: 'center',
   },
@@ -158,11 +159,11 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 18,
     alignItems: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
   },
   continueText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });

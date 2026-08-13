@@ -18,6 +18,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { requestTrackingPermission } from 'react-native-tracking-transparency';
 import LanguageSheet from '../components/LanguageSheet';
+import { Colors } from '../theme/colors';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const RATING_IMAGE_ASPECT = 701 / 356;
@@ -64,11 +65,11 @@ function CtaShine() {
       <Svg width={SHINE_WIDTH} height={SHINE_HEIGHT}>
         <Defs>
           <LinearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
-            <Stop offset="0" stopColor="#FFFFFF" stopOpacity={0} />
-            <Stop offset="0.35" stopColor="#FFFFFF" stopOpacity={0.05} />
-            <Stop offset="0.5" stopColor="#FFFFFF" stopOpacity={0.14} />
-            <Stop offset="0.65" stopColor="#FFFFFF" stopOpacity={0.05} />
-            <Stop offset="1" stopColor="#FFFFFF" stopOpacity={0} />
+            <Stop offset="0" stopColor={Colors.white} stopOpacity={0} />
+            <Stop offset="0.35" stopColor={Colors.white} stopOpacity={0.05} />
+            <Stop offset="0.5" stopColor={Colors.white} stopOpacity={0.14} />
+            <Stop offset="0.65" stopColor={Colors.white} stopOpacity={0.05} />
+            <Stop offset="1" stopColor={Colors.white} stopOpacity={0} />
           </LinearGradient>
         </Defs>
         <Rect width={SHINE_WIDTH} height={SHINE_HEIGHT} fill="url(#shine)" />
@@ -182,7 +183,7 @@ export default function PlanIntroScreen({ onContinue }: { onContinue: () => void
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   flagBadge: {
@@ -201,7 +202,7 @@ const styles = StyleSheet.create({
   headline: {
     fontSize: 34,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     lineHeight: 39,
     marginTop: 16,
   },
@@ -221,12 +222,12 @@ const styles = StyleSheet.create({
   ratingValue: {
     fontSize: 22,
     fontWeight: '800',
-    color: '#1A1A1A',
+    color: Colors.darkText,
     marginTop: 0,
   },
   ratingCount: {
     fontSize: 14,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 8,
   },
   bottom: {
@@ -243,7 +244,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
     borderRadius: 32,
     paddingVertical: 18,
     width: '100%',
@@ -255,28 +256,28 @@ const styles = StyleSheet.create({
     left: 0,
   },
   ctaText: {
-    color: '#FFFFFF',
+    color: Colors.white,
     fontSize: 18,
     fontWeight: '700',
   },
   ctaArrow: {
-    color: '#FFFFFF',
+    color: Colors.white,
     fontSize: 18,
     fontWeight: '700',
   },
   footerLineJionIn: {
     fontSize: 14,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginVertical: 18,
     fontWeight: '700',
   },
   footerLine: {
     fontSize: 14,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginTop: 8,
   },
   footerLink: {
-    color: '#1A1A1A',
+    color: Colors.darkText,
     fontWeight: '700',
   },
 });

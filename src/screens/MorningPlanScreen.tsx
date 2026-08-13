@@ -38,6 +38,7 @@ import Svg, {
 import { Ionicons } from '@react-native-vector-icons/ionicons';
 import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
 import { MISSIONS } from './MissionSelectScreen';
+import { Colors } from '../theme/colors';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const RATING_IMAGE_ASPECT = 701 / 356;
@@ -50,7 +51,7 @@ const TESTIMONIALS = [
   {
     name: 'Sarah M.',
     initial: 'S',
-    color: '#5B5FC7',
+    color: Colors.missionPurple,
     rating: '5.0',
     quote:
       "I used to hit snooze for an hour every morning. Now I'm up on my first alarm and actually have time for breakfast.",
@@ -58,7 +59,7 @@ const TESTIMONIALS = [
   {
     name: 'James R.',
     initial: 'J',
-    color: '#C4762B',
+    color: Colors.missionBrown,
     rating: '5.0',
     quote:
       'The mission feature is genius. Having one clear task to do gets me out of bed way faster than any sound ever did.',
@@ -114,14 +115,14 @@ function WakeReceiptArt() {
           <Stop offset="1" stopColor="#2E6F72" />
         </LinearGradient>
         <RadialGradient id="receiptSunCore" cx="50%" cy="50%" r="50%">
-          <Stop offset="0%" stopColor="#FFFFFF" stopOpacity={1} />
-          <Stop offset="45%" stopColor="#FFD24D" stopOpacity={1} />
-          <Stop offset="100%" stopColor="#FFA733" stopOpacity={0.95} />
+          <Stop offset="0%" stopColor={Colors.white} stopOpacity={1} />
+          <Stop offset="45%" stopColor={Colors.sunCore} stopOpacity={1} />
+          <Stop offset="100%" stopColor={Colors.sunEdge} stopOpacity={0.95} />
         </RadialGradient>
         <RadialGradient id="receiptSunGlow" cx="50%" cy="50%" r="50%">
-          <Stop offset="0%" stopColor="#FFC15C" stopOpacity={0.5} />
-          <Stop offset="60%" stopColor="#FFB347" stopOpacity={0.15} />
-          <Stop offset="100%" stopColor="#FFB347" stopOpacity={0} />
+          <Stop offset="0%" stopColor={Colors.sunGlowStart} stopOpacity={0.5} />
+          <Stop offset="60%" stopColor={Colors.sunGlowMid} stopOpacity={0.15} />
+          <Stop offset="100%" stopColor={Colors.sunGlowMid} stopOpacity={0} />
         </RadialGradient>
       </Defs>
 
@@ -141,7 +142,7 @@ function WakeReceiptArt() {
       <Rect x={0} y={150} width={RECEIPT_W} height={50} fill="#2C6068" />
       <Rect x={0} y={150} width={RECEIPT_W} height={6} fill="#3E7D82" opacity={0.6} />
 
-      <Rect x={0} y={158} width={130} height={9} fill="#6B4A34" />
+      <Rect x={0} y={158} width={130} height={9} fill={Colors.lockBrown} />
       {[20, 45, 70, 95, 120].map(x => (
         <Line key={x} x1={x} y1={158} x2={x} y2={167} stroke="#5C3E2A" strokeWidth={1} />
       ))}
@@ -164,7 +165,7 @@ function WakeReceiptArt() {
               y1={y1}
               x2={x2}
               y2={y2}
-              stroke="#FFC15C"
+              stroke={Colors.sunGlowStart}
               strokeWidth={2.5}
               strokeLinecap="round"
               opacity={0.8}
@@ -173,12 +174,12 @@ function WakeReceiptArt() {
         })}
         <Circle cx={118} cy={128} r={44} fill="url(#receiptSunGlow)" />
 
-        <Path d="M 108 150 Q 104 165 100 178" stroke="#1A1A1A" strokeWidth={2.5} fill="none" strokeLinecap="round" />
-        <Path d="M 128 150 Q 132 165 136 178" stroke="#1A1A1A" strokeWidth={2.5} fill="none" strokeLinecap="round" />
+        <Path d="M 108 150 Q 104 165 100 178" stroke={Colors.darkText} strokeWidth={2.5} fill="none" strokeLinecap="round" />
+        <Path d="M 128 150 Q 132 165 136 178" stroke={Colors.darkText} strokeWidth={2.5} fill="none" strokeLinecap="round" />
 
         <Circle cx={118} cy={128} r={26} fill="url(#receiptSunCore)" />
 
-        <Path d="M 140 126 Q 156 118 168 100" stroke="#1A1A1A" strokeWidth={2.5} fill="none" strokeLinecap="round" />
+        <Path d="M 140 126 Q 156 118 168 100" stroke={Colors.darkText} strokeWidth={2.5} fill="none" strokeLinecap="round" />
         <Path d="M 168 100 Q 178 128 190 148" stroke="rgba(255,255,255,0.7)" strokeWidth={1.2} fill="none" />
 
         <Circle cx={110} cy={124} r={2.2} fill="#3A2A10" />
@@ -191,8 +192,8 @@ function WakeReceiptArt() {
           d="M 182 148 Q 192 138 202 144 Q 195 150 200 156 Q 190 154 182 148 Z"
           fill="#DDE7EA"
         />
-        <Circle cx={172} cy={158} r={2} fill="#FFFFFF" opacity={0.7} />
-        <Circle cx={178} cy={162} r={1.4} fill="#FFFFFF" opacity={0.5} />
+        <Circle cx={172} cy={158} r={2} fill={Colors.white} opacity={0.7} />
+        <Circle cx={178} cy={162} r={1.4} fill={Colors.white} opacity={0.5} />
       </G>
     </Svg>
   );
@@ -224,7 +225,7 @@ function Pill({
 function ChevronDivider() {
   return (
     <View style={styles.chevronRow}>
-      <Ionicons name="chevron-down" size={16} color="#B0B0B4" />
+      <Ionicons name="chevron-down" size={16} color={Colors.tertiaryText} />
     </View>
   );
 }
@@ -298,12 +299,12 @@ export default function MorningPlanScreen({
           <Text style={styles.subtitle}>Here's what today looks like at {wakeTime}</Text>
 
           <View style={styles.pillsRow}>
-            <Pill iconSet="ion" icon="alert-circle" color="#E7A845" label={`Starts in ${formatCountdown(remaining)}`} />
-            <Pill iconSet="ion" icon="flash" color="#E7A845" label={weekdayLabel} />
+            <Pill iconSet="ion" icon="alert-circle" color={Colors.accent} label={`Starts in ${formatCountdown(remaining)}`} />
+            <Pill iconSet="ion" icon="flash" color={Colors.accent} label={weekdayLabel} />
           </View>
           <View style={styles.pillsRow}>
             <Pill iconSet={mission.iconSet} icon={mission.icon} color={mission.color} label={mission.title} />
-            <Pill iconSet="ion" icon="notifications" color="#E7A845" label="Default" />
+            <Pill iconSet="ion" icon="notifications" color={Colors.accent} label="Default" />
           </View>
         </Animated.View>
 
@@ -317,7 +318,7 @@ export default function MorningPlanScreen({
 
             <View style={styles.timelineRow}>
               <View style={styles.timelineCircleBlack}>
-                <Ionicons name="notifications" size={16} color="#FFFFFF" />
+                <Ionicons name="notifications" size={16} color={Colors.white} />
               </View>
               <Text style={styles.timelineText}>{wakeTime} — Alarm rings</Text>
             </View>
@@ -325,9 +326,9 @@ export default function MorningPlanScreen({
             <View style={styles.timelineRow}>
               <View style={styles.timelineCircleBlack}>
                 {mission.iconSet === 'mdi' ? (
-                  <MaterialDesignIcons name={mission.icon as never} size={16} color="#FFFFFF" />
+                  <MaterialDesignIcons name={mission.icon as never} size={16} color={Colors.white} />
                 ) : (
-                  <Ionicons name={mission.icon as never} size={16} color="#FFFFFF" />
+                  <Ionicons name={mission.icon as never} size={16} color={Colors.white} />
                 )}
               </View>
               <Text style={styles.timelineText}>Complete {mission.title}</Text>
@@ -335,7 +336,7 @@ export default function MorningPlanScreen({
 
             <View style={[styles.timelineRow, styles.timelineRowLast]}>
               <View style={styles.timelineCircleGreen}>
-                <Ionicons name="checkmark" size={16} color="#FFFFFF" />
+                <Ionicons name="checkmark" size={16} color={Colors.white} />
               </View>
               <Text style={[styles.timelineText, styles.timelineTextBold]}>
                 You're up. Day started.
@@ -357,7 +358,7 @@ export default function MorningPlanScreen({
             <View style={styles.receiptTopRow}>
               <Text style={styles.receiptDate}>{dateLabel}</Text>
               <TouchableOpacity style={styles.shareBtn} activeOpacity={0.7} onPress={handleShare}>
-                <Ionicons name="share-outline" size={16} color="#FFFFFF" />
+                <Ionicons name="share-outline" size={16} color={Colors.white} />
               </TouchableOpacity>
             </View>
             <View style={styles.receiptBottomRow}>
@@ -400,7 +401,7 @@ export default function MorningPlanScreen({
               <Text style={styles.testimonialName}>{t.name}</Text>
               <View style={styles.testimonialRating}>
                 {Array.from({ length: 5 }, (_, i) => (
-                  <Ionicons key={i} name="star" size={11} color="#E7A845" />
+                  <Ionicons key={i} name="star" size={11} color={Colors.accent} />
                 ))}
                 <Text style={styles.testimonialRatingText}>{t.rating}</Text>
               </View>
@@ -422,7 +423,7 @@ export default function MorningPlanScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F6F6F8',
+    backgroundColor: Colors.background,
     paddingHorizontal: 24,
   },
   ratingImage: {
@@ -434,13 +435,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     textAlign: 'center',
     marginTop: 12,
   },
   subtitle: {
     fontSize: 15,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     marginTop: 8,
     marginHorizontal: 12,
@@ -462,7 +463,7 @@ const styles = StyleSheet.create({
   pillText: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#4A4A4C',
+    color: Colors.iconGray,
     marginLeft: 6,
   },
   chevronRow: {
@@ -472,20 +473,20 @@ const styles = StyleSheet.create({
   sectionLabel: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     letterSpacing: 1,
     textAlign: 'center',
     marginBottom: 12,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 24,
     padding: 20,
   },
   cardLabel: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     letterSpacing: 1,
     marginBottom: 20,
   },
@@ -498,7 +499,7 @@ const styles = StyleSheet.create({
     top: 18,
     bottom: 18,
     width: 2,
-    backgroundColor: '#E5E5E7',
+    backgroundColor: Colors.borderLight,
   },
   timelineRow: {
     flexDirection: 'row',
@@ -512,7 +513,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#000000',
+    backgroundColor: Colors.black,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -520,14 +521,14 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#3FAE7A',
+    backgroundColor: Colors.success,
     alignItems: 'center',
     justifyContent: 'center',
   },
   timelineText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#1A1A1A',
+    color: Colors.darkText,
     marginLeft: 16,
   },
   timelineTextBold: {
@@ -535,7 +536,7 @@ const styles = StyleSheet.create({
   },
   cardCaption: {
     fontSize: 14,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     marginTop: 20,
     lineHeight: 20,
@@ -563,7 +564,7 @@ const styles = StyleSheet.create({
   receiptDate: {
     fontSize: 13,
     fontWeight: '800',
-    color: '#FFFFFF',
+    color: Colors.white,
     letterSpacing: 1,
   },
   shareBtn: {
@@ -582,7 +583,7 @@ const styles = StyleSheet.create({
   receiptTime: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
   receiptMission: {
     fontSize: 13,
@@ -599,17 +600,17 @@ const styles = StyleSheet.create({
   receiptBadgeText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
   streakTitle: {
     fontSize: 20,
     fontWeight: '800',
-    color: '#000000',
+    color: Colors.black,
     textAlign: 'center',
   },
   streakSubtitle: {
     fontSize: 14,
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     textAlign: 'center',
     marginTop: 6,
     lineHeight: 20,
@@ -624,17 +625,17 @@ const styles = StyleSheet.create({
     height: 34,
     borderRadius: 17,
     borderWidth: 1.5,
-    borderColor: '#000000',
+    borderColor: Colors.black,
     alignItems: 'center',
     justifyContent: 'center',
   },
   dayLetter: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#000000',
+    color: Colors.black,
   },
   testimonialCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     borderRadius: 20,
     padding: 16,
     marginBottom: 12,
@@ -653,13 +654,13 @@ const styles = StyleSheet.create({
   avatarInitial: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
   testimonialName: {
     flex: 1,
     fontSize: 15,
     fontWeight: '700',
-    color: '#000000',
+    color: Colors.black,
     marginLeft: 12,
   },
   testimonialRating: {
@@ -669,12 +670,12 @@ const styles = StyleSheet.create({
   testimonialRatingText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#8A8A8E',
+    color: Colors.mutedText,
     marginLeft: 4,
   },
   testimonialQuote: {
     fontSize: 14,
-    color: '#4A4A4C',
+    color: Colors.iconGray,
     lineHeight: 20,
     marginTop: 12,
   },
@@ -690,8 +691,8 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 18,
     alignItems: 'center',
-    backgroundColor: '#000000',
-    shadowColor: '#000000',
+    backgroundColor: Colors.black,
+    shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.15,
     shadowRadius: 12,
@@ -700,6 +701,6 @@ const styles = StyleSheet.create({
   continueText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: Colors.white,
   },
 });
