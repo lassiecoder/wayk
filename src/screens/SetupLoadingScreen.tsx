@@ -286,6 +286,7 @@ const styles = StyleSheet.create({
     fontSize: 60,
     fontWeight: '800',
     color: '#000000',
+    textAlign: 'center',
   },
   headline: {
     fontSize: 20,
