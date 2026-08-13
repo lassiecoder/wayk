@@ -164,62 +164,69 @@ export default function CommitmentScreen({
         </Text>
       </Animated.View>
 
-      <Animated.View style={[styles.pad, padReveal, { borderColor }]}>
-        {!hasSigned && (
-          <View style={styles.placeholder} pointerEvents="none">
-            <Text style={styles.placeholderTitle}>Sign here</Text>
-            <Text style={styles.placeholderSubtitle}>
-              your commitment to wake up
-            </Text>
+      {/* Two nested Animated.Views: the outer carries only the native-driven
+          reveal transform/opacity, the inner only the JS-driven border
+          color. Animated can't mix a native- and JS-driven node in the
+          same style array on one view without crashing once both have
+          started. */}
+      <Animated.View style={padReveal}>
+        <Animated.View style={[styles.pad, { borderColor }]}>
+          {!hasSigned && (
+            <View style={styles.placeholder} pointerEvents="none">
+              <Text style={styles.placeholderTitle}>Sign here</Text>
+              <Text style={styles.placeholderSubtitle}>
+                your commitment to wake up
+              </Text>
+            </View>
+          )}
+
+          <Animated.Text style={[styles.watermark, { opacity: watermarkOpacity }]}>
+            COMMITMENT LOCKED
+          </Animated.Text>
+
+          <View style={styles.canvas} {...panResponder.panHandlers}>
+            <Svg width="100%" height="100%">
+              {strokes.map((stroke, i) => (
+                <Path
+                  key={i}
+                  d={pointsToPath(stroke)}
+                  stroke="#1A1A1A"
+                  strokeWidth={3}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              ))}
+              {currentStroke.current.length > 1 && (
+                <Path
+                  d={pointsToPath(currentStroke.current)}
+                  stroke="#1A1A1A"
+                  strokeWidth={3}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              )}
+            </Svg>
           </View>
-        )}
 
-        <Animated.Text style={[styles.watermark, { opacity: watermarkOpacity }]}>
-          COMMITMENT LOCKED
-        </Animated.Text>
+          {hasSigned && (
+            <Animated.View
+              pointerEvents="none"
+              style={[
+                styles.checkBadge,
+                { opacity: badgeOpacity, transform: [{ scale: badgeScale }] },
+              ]}
+            >
+              <Ionicons name="checkmark" size={30} color="#FFFFFF" />
+            </Animated.View>
+          )}
 
-        <View style={styles.canvas} {...panResponder.panHandlers}>
-          <Svg width="100%" height="100%">
-            {strokes.map((stroke, i) => (
-              <Path
-                key={i}
-                d={pointsToPath(stroke)}
-                stroke="#1A1A1A"
-                strokeWidth={3}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            ))}
-            {currentStroke.current.length > 1 && (
-              <Path
-                d={pointsToPath(currentStroke.current)}
-                stroke="#1A1A1A"
-                strokeWidth={3}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            )}
-          </Svg>
-        </View>
-
-        {hasSigned && (
-          <Animated.View
-            pointerEvents="none"
-            style={[
-              styles.checkBadge,
-              { opacity: badgeOpacity, transform: [{ scale: badgeScale }] },
-            ]}
-          >
-            <Ionicons name="checkmark" size={30} color="#FFFFFF" />
-          </Animated.View>
-        )}
-
-        <View style={styles.signLine} pointerEvents="none" />
-        <TouchableOpacity style={styles.clearBtn} onPress={clearSignature}>
-          <Ionicons name="close" size={16} color="#8A8A8E" />
-        </TouchableOpacity>
+          <View style={styles.signLine} pointerEvents="none" />
+          <TouchableOpacity style={styles.clearBtn} onPress={clearSignature}>
+            <Ionicons name="close" size={16} color="#8A8A8E" />
+          </TouchableOpacity>
+        </Animated.View>
       </Animated.View>
 
       <View style={styles.bottom}>
