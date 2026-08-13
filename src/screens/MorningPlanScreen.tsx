@@ -1,12 +1,13 @@
 /**
- * "Your Morning Plan" recap screen — the final onboarding step, shown
- * after setup finishes. Summarizes the plan the user just built (wake
- * time, mission, alarm sound) with a live countdown to the next alarm,
- * a timeline of what happens that morning, a wake-receipt illustration
- * (custom SVG scene, no matching asset exists — same convention as
- * SpeedGaugeScreen's gauge), a streak card, and two testimonials.
- * "Start my plan" is the only way forward; no back button, matching the
- * mock's design (this is the destination, not a step to revisit).
+ * "Your Morning Plan" recap screen. Summarizes the plan the user just
+ * built (wake time, mission, alarm sound) with a live countdown to the
+ * next alarm, a timeline of what happens that morning, a wake-receipt
+ * illustration (custom SVG scene, no matching asset exists — same
+ * convention as SpeedGaugeScreen's gauge), a streak card, and two
+ * testimonials. Rendered twice in the flow: once as a preview right
+ * after setup finishes (leading into the referral/account gates), and
+ * once as the final onboarding destination after account creation.
+ * "Start my plan" is the only way forward; no back button.
  */
 import React, { useEffect, useRef, useState } from 'react';
 import {

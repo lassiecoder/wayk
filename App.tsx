@@ -89,6 +89,7 @@ type Screen =
   | 'notificationPermission'
   | 'commitment'
   | 'setupLoading'
+  | 'morningPlanPreview'
   | 'referralUnlock'
   | 'createAccount'
   | 'morningPlan';
@@ -315,12 +316,19 @@ function App() {
         <SetupLoadingScreen
           wakeMission={wakeMission}
           wakeTime={wakeGoalTime}
-          onComplete={() => setScreen('referralUnlock')}
+          onComplete={() => setScreen('morningPlanPreview')}
+        />
+      )}
+      {screen === 'morningPlanPreview' && (
+        <MorningPlanScreen
+          wakeMission={wakeMission}
+          wakeTime={wakeGoalTime}
+          onContinue={() => setScreen('referralUnlock')}
         />
       )}
       {screen === 'referralUnlock' && (
         <ReferralUnlockScreen
-          onBack={() => setScreen('commitment')}
+          onBack={() => setScreen('morningPlanPreview')}
           onContinue={() => setScreen('createAccount')}
         />
       )}
