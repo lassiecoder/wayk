@@ -8,8 +8,8 @@
 import { useState } from 'react';
 import { StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import SkyOnboarding from './SkyOnboarding';
-import PlanIntroScreen from './PlanIntroScreen';
+import SkyOnboarding from './src/screens/SkyOnboarding';
+import PlanIntroScreen from './src/screens/PlanIntroScreen';
 import QuestionnaireScreen, {
   ALARM_QUESTIONS,
   ALARM_QUESTIONS_OFFSET,
@@ -31,30 +31,30 @@ import QuestionnaireScreen, {
   SPEED_GAUGE_SCREEN_PROGRESS,
   WAKE_GOAL_SCREEN_PROGRESS,
   WAKE_TIME_SCREEN_PROGRESS,
-} from './QuestionnaireScreen';
-import EnergyLevelsScreen from './EnergyLevelsScreen';
-import MissionScreen from './MissionScreen';
-import BiologyScreen from './BiologyScreen';
-import WakeTimeScreen from './WakeTimeScreen';
-import WakeGoalScreen from './WakeGoalScreen';
-import WakeTargetScreen from './WakeTargetScreen';
-import QuoteScreen from './QuoteScreen';
-import MissionSelectScreen from './MissionSelectScreen';
-import ExerciseSetupScreen from './ExerciseSetupScreen';
-import ExerciseInsightScreen from './ExerciseInsightScreen';
-import SetAlarmScreen from './SetAlarmScreen';
-import DaysScreen from './DaysScreen';
-import AlarmSoundScreen from './AlarmSoundScreen';
-import MissionAlarmScreen from './MissionAlarmScreen';
-import ReferralSourceScreen from './ReferralSourceScreen';
-import ReferralCodeScreen from './ReferralCodeScreen';
-import SpeedGaugeScreen from './SpeedGaugeScreen';
-import NotificationPermissionScreen from './NotificationPermissionScreen';
-import CommitmentScreen from './CommitmentScreen';
-import SetupLoadingScreen from './SetupLoadingScreen';
-import ReferralUnlockScreen from './ReferralUnlockScreen';
-import CreateAccountScreen from './CreateAccountScreen';
-import MorningPlanScreen from './MorningPlanScreen';
+} from './src/screens/QuestionnaireScreen';
+import EnergyLevelsScreen from './src/screens/EnergyLevelsScreen';
+import MissionScreen from './src/screens/MissionScreen';
+import BiologyScreen from './src/screens/BiologyScreen';
+import WakeTimeScreen from './src/screens/WakeTimeScreen';
+import WakeGoalScreen from './src/screens/WakeGoalScreen';
+import WakeTargetScreen from './src/screens/WakeTargetScreen';
+import QuoteScreen from './src/screens/QuoteScreen';
+import MissionSelectScreen from './src/screens/MissionSelectScreen';
+import ExerciseSetupScreen from './src/screens/ExerciseSetupScreen';
+import ExerciseInsightScreen from './src/screens/ExerciseInsightScreen';
+import SetAlarmScreen from './src/screens/SetAlarmScreen';
+import DaysScreen from './src/screens/DaysScreen';
+import AlarmSoundScreen from './src/screens/AlarmSoundScreen';
+import MissionAlarmScreen from './src/screens/MissionAlarmScreen';
+import ReferralSourceScreen from './src/screens/ReferralSourceScreen';
+import ReferralCodeScreen from './src/screens/ReferralCodeScreen';
+import SpeedGaugeScreen from './src/screens/SpeedGaugeScreen';
+import NotificationPermissionScreen from './src/screens/NotificationPermissionScreen';
+import CommitmentScreen from './src/screens/CommitmentScreen';
+import SetupLoadingScreen from './src/screens/SetupLoadingScreen';
+import ReferralUnlockScreen from './src/screens/ReferralUnlockScreen';
+import CreateAccountScreen from './src/screens/CreateAccountScreen';
+import MorningPlanScreen from './src/screens/MorningPlanScreen';
 
 // Only these missions need a duration/reps setup step; the rest (a photo or
 // a math problem) don't have a configurable quantity.

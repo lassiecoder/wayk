@@ -1,13 +1,12 @@
 /**
- * "Biology, Not Laziness" insight screen. Explains sleep inertia with the
- * DNA illustration. Continue stays disabled for 2s after landing, then
- * unlocks — no animation to wait on here, just a beat to let the reader
- * take in the copy.
+ * Motivational-quote interstitial shown after WakeTargetScreen. Static
+ * copy, same header/footer chrome as the other Wake-flow screens.
  */
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Animated,
   Easing,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -17,7 +16,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const UNLOCK_DELAY_MS = 1000;
 
-export default function BiologyScreen({
+export default function QuoteScreen({
   progress,
   onBack,
   onContinue,
@@ -34,8 +33,9 @@ export default function BiologyScreen({
     return () => clearTimeout(id);
   }, []);
 
-  // Same reveal pattern as QuoteScreen: the icon slides in from the right
-  // while the title/body slide up from the bottom, both on the same timer.
+  // Same reveal used for the question title in QuestionnaireScreen: fade in
+  // while sliding up from 16px, once on mount. The quote icon shares the
+  // same fade/timing but slides in from the left instead.
   const revealAnim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     Animated.timing(revealAnim, {
@@ -46,18 +46,6 @@ export default function BiologyScreen({
     }).start();
   }, [revealAnim]);
 
-  const iconReveal = {
-    opacity: revealAnim,
-    transform: [
-      {
-        translateX: revealAnim.interpolate({
-          inputRange: [0, 1],
-          outputRange: [40, 0],
-        }),
-      },
-    ],
-  };
-
   const textReveal = {
     opacity: revealAnim,
     transform: [
@@ -65,6 +53,18 @@ export default function BiologyScreen({
         translateY: revealAnim.interpolate({
           inputRange: [0, 1],
           outputRange: [16, 0],
+        }),
+      },
+    ],
+  };
+
+  const iconReveal = {
+    opacity: revealAnim,
+    transform: [
+      {
+        translateX: revealAnim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [-40, 0],
         }),
       },
     ],
@@ -83,19 +83,17 @@ export default function BiologyScreen({
         </View>
       </View>
 
-      <View style={styles.content}>
+      <View style={styles.center}>
         <Animated.Image
-          source={require('./assets/images/dna.webp')}
-          style={[styles.dnaImage, iconReveal]}
+          source={require('../../assets/images/inverted-commas.webp')}
+          style={[styles.quoteIcon, iconReveal]}
           resizeMode="contain"
         />
         <Animated.View style={textReveal}>
-          <Text style={styles.title}>Biology, Not Laziness</Text>
-          <Text style={styles.body}>
-            When the alarm rings, your prefrontal cortex is still asleep. This
-            is ‘Sleep Inertia.’ You can’t think your way out of bed when your
-            brain is offline.
+          <Text style={styles.quote}>
+            If you win the morning, you win the day.
           </Text>
+          <Text style={styles.author}>Tim Ferriss</Text>
         </Animated.View>
       </View>
 
@@ -156,31 +154,31 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     backgroundColor: '#E7A845',
   },
-  content: {
-    flex: 1,
-    alignItems: 'center',
+  center: {
+    // flex: 1,
+    marginTop: 200,
     justifyContent: 'center',
-    paddingBottom: 120,
+    alignItems: 'center',
   },
-  dnaImage: {
-    width: 150,
-    height: 150,
+  quoteIcon: {
+    width: 56,
+    height: 56,
+    marginBottom: 24,
   },
-  title: {
-    fontSize: 28,
-    fontWeight: '800',
+  quote: {
+    fontSize: 30,
+    fontWeight: '700',
+    fontFamily: Platform.select({ ios: 'Georgia', android: 'serif' }),
     color: '#000000',
+    lineHeight: 38,
     textAlign: 'center',
-    marginTop: 32,
   },
-  body: {
+  author: {
     fontSize: 16,
     color: '#8A8A8E',
+    marginTop: 20,
     textAlign: 'center',
-    lineHeight: 23,
-    marginTop: 16,
-    fontWeight: '600',
-    marginHorizontal: 10,
+    fontWeight: '700',
   },
   bottom: {
     position: 'absolute',

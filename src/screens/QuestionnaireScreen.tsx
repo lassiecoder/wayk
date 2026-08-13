@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
-import LanguageSheet from './LanguageSheet';
+import LanguageSheet from '../components/LanguageSheet';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 

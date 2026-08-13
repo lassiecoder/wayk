@@ -17,7 +17,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { requestTrackingPermission } from 'react-native-tracking-transparency';
-import LanguageSheet from './LanguageSheet';
+import LanguageSheet from '../components/LanguageSheet';
 
 const { width: SCREEN_W } = Dimensions.get('window');
 const RATING_IMAGE_ASPECT = 701 / 356;
@@ -145,7 +145,7 @@ export default function PlanIntroScreen({ onContinue }: { onContinue: () => void
 
       <View style={styles.ratingBlock}>
         <Image
-          source={require('./assets/images/app-store-rating.webp')}
+          source={require('../../assets/images/app-store-rating.webp')}
           style={styles.ratingImage}
           resizeMode="contain"
         />

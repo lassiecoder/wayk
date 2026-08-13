@@ -289,7 +289,7 @@ export default function MorningPlanScreen({
       >
         <Animated.View style={reveal}>
           <Image
-            source={require('./assets/images/app-store-rating.webp')}
+            source={require('../../assets/images/app-store-rating.webp')}
             style={styles.ratingImage}
             resizeMode="contain"
           />

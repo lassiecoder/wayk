@@ -1,8 +1,9 @@
 /**
- * "What time do you want to be up?" screen — the goal wake time, shown
- * right after WakeTimeScreen's current-habit time. Same hand-rolled wheel
- * picker (hour / minute / AM-PM) as WakeTimeScreen. Continue has no
- * gating: a time is always selected by default.
+ * "Set your first Wayk time" screen — the final wheel-picker step that
+ * commits the actual alarm. Same hand-rolled wheel picker as
+ * WakeTimeScreen/WakeGoalScreen; subtitle and CTA text update live with
+ * the picked time. Title block slides in right-to-left on mount, same
+ * revealAnim technique as MissionSelectScreen's title.
  */
 import React, { useEffect, useRef, useState } from 'react';
 import {
@@ -16,7 +17,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import RollingText from './RollingText';
+import RollingText from '../components/RollingText';
 
 const ITEM_H = 44;
 const VISIBLE_ROWS = 5;
@@ -93,7 +94,7 @@ function WheelColumn({
   );
 }
 
-export default function WakeGoalScreen({
+export default function SetAlarmScreen({
   progress,
   onBack,
   onContinue,
@@ -108,7 +109,7 @@ export default function WakeGoalScreen({
   const [periodIndex, setPeriodIndex] = useState(DEFAULT_PERIOD_INDEX);
 
   // Title block slides in from the right, same technique as
-  // MissionSelectScreen/SetAlarmScreen/DaysScreen's title reveal.
+  // MissionSelectScreen's title reveal.
   const revealAnim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     Animated.timing(revealAnim, {
@@ -143,8 +144,8 @@ export default function WakeGoalScreen({
     ],
   };
 
-  const progressWidth = `${Math.max(progress, 0.04) * 100}%`;
   const selectedTime = `${HOURS[hourIndex]}:${MINUTES[minuteIndex]} ${PERIODS[periodIndex]}`;
+  const progressWidth = `${Math.max(progress, 0.04) * 100}%`;
 
   return (
     <View style={[styles.container, { paddingTop: insets.top + 12 }]}>
@@ -158,8 +159,10 @@ export default function WakeGoalScreen({
       </View>
 
       <Animated.View style={titleReveal}>
-        <Text style={styles.title}>What time do you want to be up?</Text>
-        <Text style={styles.subtitle}>Your ideal daily wake up time.</Text>
+        <Text style={styles.title}>Set your first Wayk time</Text>
+        <Text style={styles.subtitle}>
+          We'll wake you at {selectedTime} with your mission.
+        </Text>
       </Animated.View>
 
       <Animated.View style={pickerReveal}>
@@ -196,7 +199,7 @@ export default function WakeGoalScreen({
           activeOpacity={0.85}
           onPress={() => onContinue(selectedTime)}
         >
-          <Text style={styles.continueText}>Continue</Text>
+          <Text style={styles.continueText}>Set alarm for {selectedTime}</Text>
         </TouchableOpacity>
       </View>
     </View>
