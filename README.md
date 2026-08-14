@@ -4,7 +4,9 @@ An alarm app that doesn't let you snooze your way back to sleep. You pick a wake
 
 ## Demo
 
-_Video: attaching separately._
+_Full Video: [Watch here](https://drive.google.com/file/d/1R4oCvM3MKR30JF7ktZXXKV7O_MWrVMCn/view?usp=sharing)_
+
+[Preview](https://github.com/user-attachments/assets/f47bae93-6a22-4472-9fd0-02a37e873185)
 
 ## Tech stack
 
